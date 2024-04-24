@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class AppViewModiel: ViewModel() {
-
     private val _cameraPermissionGranded = MutableLiveData(false)
     val cameraPermissionGrnaded = _cameraPermissionGranded
 
@@ -13,6 +12,9 @@ class AppViewModiel: ViewModel() {
 
     private val _showPermissionDenied = MutableLiveData(false)
     val showPermissionDenied = _showPermissionDenied
+
+    private val _showBottomSheet = MutableLiveData(false)
+    val showBottomSheet = _showBottomSheet
 
     fun changeCameraPermissionGranted(granted: Boolean) {
         _cameraPermissionGranded.value = granted
@@ -24,5 +26,9 @@ class AppViewModiel: ViewModel() {
 
     fun changeShowPermissionDenied(show: Boolean) {
         _showPermissionDenied.value = show
+    }
+
+    fun changeShowBottomSheet(show: Boolean) {
+        _showBottomSheet.value = show
     }
 }
