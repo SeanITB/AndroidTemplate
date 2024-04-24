@@ -15,11 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.estudio_examen_uf2.ViewModel.AppViewModiel
 import com.example.estudio_examen_uf2.navigation.Routes
 import kotlinx.coroutines.launch
 
 @Composable
-fun MyDrawer(navControllerAuth: NavController) {
+fun MyDrawer(navControllerAuth: NavController, appVM: AppViewModiel) {
+
     val navControllerHome = rememberNavController()
     val scope = rememberCoroutineScope()
     val state: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -30,18 +32,18 @@ fun MyDrawer(navControllerAuth: NavController) {
             /*toDo: menu option */
 
             NavigationDrawerItem(
-                label = { "Logout" },
+                label = { Text(text = "Logout") },
                 selected = false,
                 onClick = {
                     scope.launch {
                         state.close()
                     }
-                    navControllerHome.navigate(Routes.Login.routes)
+                    navControllerAuth.navigate(Routes.Login.routes)
                 }
             )
         }
     }
     ) {
-        MyScafold(navControllerHome = navControllerHome, state = state)
+        MyScafold(navControllerHome = navControllerHome, state = state, appVM = appVM)
     }
 }
