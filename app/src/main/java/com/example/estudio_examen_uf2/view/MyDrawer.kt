@@ -44,6 +44,6 @@ fun MyDrawer(navControllerAuth: NavController, appVM: AppViewModiel) {
         }
     }
     ) {
-        MyScafold(navControllerHome = navControllerHome, state = state, appVM = appVM)
+        MyScafold(navControllerHome = navControllerAuth, state = state, appVM = appVM)
     }
 }
